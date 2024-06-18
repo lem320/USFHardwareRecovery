@@ -1,0 +1,54 @@
+module testbench_diff_operator ();
+
+	parameter N = 4;
+
+	localparam  [11:0] arr [10:0] = '{
+		0:12'd1,
+		1:12'd4,
+		2:12'd7,
+		3:12'd9,
+		4:12'd14,
+		5:12'd10,
+		6:12'd4,
+		7:12'd8,
+		8:12'd10,
+		9:12'd20,
+		10:12'd30
+	};
+	integer i;
+
+	reg clk = 1'b0;
+	reg en = 1'b0;
+	
+	reg[11:0] in = 12'd1;
+	wire signed [15:0] out [3:0];
+	
+	
+	diff_operator U0 (
+		.clk(clk),
+		.en(en),
+		.reset(1'b0),
+		.y(in),
+		
+		.out(out)
+	);
+	defparam U0.order = N;
+	defparam U0.order_bits = 3;
+		
+	
+	always
+		#10 clk <= ~clk; // 50MHz
+	
+	always begin
+		#190 en <= 1'b1;
+		#10 en <= 1'b0;
+	end
+	
+	initial
+		for (i = 0; i<=10; i = i + 1) begin
+			in <= arr[i];
+			#200;
+		end
+		
+
+endmodule

@@ -1,0 +1,23 @@
+module adc_wrapper (clk, reset, ADC_SCLK, ADC_CS_N, ADC_DOUT, ADC_DIN, s1);
+
+
+	input clk, reset;
+	input ADC_DOUT;
+	output ADC_SCLK, ADC_CS_N, ADC_DIN;
+	
+	output wire [15:0] s1;
+	wire [11:0] reading;
+	
+	assign s1 = {4'b0,reading};
+	
+
+	ltc2308_singlechannel ADC2 (
+		.clk_50(CLOCK_50),
+		.sclk(ADC_SCLK),
+		.cs(ADC_CS_N),
+		.mosi(ADC_DIN),
+		.miso(ADC_DOUT),
+		.reading(reading)
+	);
+
+endmodule

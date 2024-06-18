@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="FP_GREATER_sim/FP_GREATER.vo" type="VERILOG" />
+ <topLevel name="FP_GREATER" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

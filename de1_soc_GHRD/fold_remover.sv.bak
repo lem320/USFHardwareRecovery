@@ -1,0 +1,58 @@
+`include "functions.sv"
+
+parameter rows = J+1;
+
+module fold_remover (
+	input clk,
+	input reset,
+	input en,
+	
+	input signed [OUT_RES-1:0] in [rows-1:0],
+	output signed reg [OUT_RES-1:0] out [rows-1:0]
+);
+
+	integer i;
+
+	initial
+		for (i=0; i<rows; i=i+1)
+			out[i] <= in[i];
+
+	wire signed [OUT_RES-1] D_in [rows-1:0];
+	wire thresholded [rows-1:0];
+
+	diff_operator_multi DIFF (
+		.clk(clk),
+		.reset(reset)
+		.en(en),
+		.in(in),
+		.out(D_in)
+	);
+	
+	genvar z;
+	generate
+		for (z=0; z<rows; z=z+1)
+			assign thresholded[z] = D_in[z][B-3];
+	endgenerate
+	
+	reg state = 0;
+	reg[5:0] n = J+1;
+	reg[5:0] start_index = 0;
+	
+	always @ (posedge clk)
+		if (en)
+			n <= 0;
+		else if (n < J+1) begin
+			if (!state && thresholded[n]) begin
+				state <= 1'b1;
+				start_index <= n-1;
+			end
+			else if (state && !thresholded[n]) begin
+				state <= 1'b0;
+				for (i=start_index+1; i<n; i=i+1)
+					out <= 
+			end
+				
+		end
+		
+
+endmodule

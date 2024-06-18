@@ -1,0 +1,9 @@
+`include "parameters.sv"
+
+function [OUT_RES-1] CMOD (
+	input[OUT_RES-1:0] x,
+	
+)
+	return {{OUT_RES-1-B{x[B]}}, x[B-1:0] - {x[B], (B-1)'('b0)}};
+endfunction
+	

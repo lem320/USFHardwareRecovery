@@ -1,0 +1,186 @@
+//IP Functional Simulation Model
+//VERSION_BEGIN 21.1 cbx_mgl 2021:10:21:11:03:46:SJ cbx_simgen 2021:10:21:11:03:22:SJ  VERSION_END
+// synthesis VERILOG_INPUT_VERSION VERILOG_2001
+// altera message_off 10463
+
+
+
+// Copyright (C) 2021  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// You may only use these simulation model output files for simulation
+// purposes and expressly not for synthesis or any other purposes (in which
+// event Intel disclaims all warranties of any kind).
+
+
+//synopsys translate_off
+
+//synthesis_resources = mux21 2 oper_add 2 
+`timescale 1 ps / 1 ps
+module  FP_GEQ
+	( 
+	a,
+	areset,
+	b,
+	clk,
+	en,
+	q) /* synthesis synthesis_clearbox=1 */;
+	input   [31:0]  a;
+	input   areset;
+	input   [31:0]  b;
+	input   clk;
+	input   [0:0]  en;
+	output   [0:0]  q;
+
+	wire	wire_n01O_dataout;
+	wire	wire_n0ll_dataout;
+	wire  [33:0]   wire_n0lO_o;
+	wire  [33:0]   wire_n0Oi_o;
+	wire  niiiO;
+	wire  niili;
+	wire  niill;
+	wire  niilO;
+	wire  niiOi;
+	wire  niiOl;
+	wire  niiOO;
+	wire  nil0i;
+	wire  nil0l;
+	wire  nil0O;
+	wire  nil1i;
+	wire  nil1l;
+	wire  nil1O;
+	wire  nilii;
+	wire  nilil;
+	wire  niliO;
+	wire  nilli;
+	wire  nilll;
+	wire  nillO;
+	wire  nilOi;
+	wire  nilOl;
+	wire  nilOO;
+	wire  niO0i;
+	wire  niO0l;
+	wire  niO0O;
+	wire  niO1i;
+	wire  niO1l;
+	wire  niO1O;
+	wire  niOii;
+	wire  niOil;
+	wire  niOiO;
+	wire  niOli;
+	wire  niOll;
+	wire  niOlO;
+	wire  niOOi;
+	wire  niOOl;
+	wire  niOOO;
+	wire  nl01l;
+	wire  nl10i;
+	wire  nl10l;
+	wire  nl10O;
+	wire  nl11i;
+	wire  nl11l;
+	wire  nl11O;
+	wire  nl1ii;
+	wire  nl1il;
+	wire  nl1iO;
+	wire  nl1li;
+	wire  nl1ll;
+	wire  nl1lO;
+	wire  nl1Oi;
+	wire  nl1Ol;
+
+	and(wire_n01O_dataout, ((niO0O & nl01l) | ((wire_n0ll_dataout & (~ (a[31] ^ b[31]))) | ((~ a[31]) & b[31]))), (~ (((~ niilO) & niill) | ((~ niili) & niiiO))));
+	assign		wire_n0ll_dataout = ((~ a[31]) === 1'b1) ? (~ wire_n0lO_o[33]) : (~ wire_n0Oi_o[33]);
+	oper_add   n0lO
+	( 
+	.a({{2{1'b0}}, a[30:23], niOii, niOil, niOiO, niOli, niOll, niOlO, niOOi, niOOl, niOOO, nl11i, nl11l, nl11O, nl10i, nl10l, nl10O, nl1ii, nl1il, nl1iO, nl1li, nl1ll, nl1lO, nl1Oi, nl1Ol, 1'b1}),
+	.b({{2{1'b1}}, (~ b[30]), (~ b[29]), (~ b[28]), (~ b[27]), (~ b[26]), (~ b[25]), (~ b[24]), (~ b[23]), (~ niiOi), (~ niiOl), (~ niiOO), (~ nil1i), (~ nil1l), (~ nil1O), (~ nil0i), (~ nil0l), (~ nil0O), (~ nilii), (~ nilil), (~ niliO), (~ nilli), (~ nilll), (~ nillO), (~ nilOi), (~ nilOl), (~ nilOO), (~ niO1i), (~ niO1l), (~ niO1O), (~ niO0i), (~ niO0l), 1'b1}),
+	.cin(1'b0),
+	.cout(),
+	.o(wire_n0lO_o));
+	defparam
+		n0lO.sgate_representation = 0,
+		n0lO.width_a = 34,
+		n0lO.width_b = 34,
+		n0lO.width_o = 34;
+	oper_add   n0Oi
+	( 
+	.a({{2{1'b0}}, b[30:23], niiOi, niiOl, niiOO, nil1i, nil1l, nil1O, nil0i, nil0l, nil0O, nilii, nilil, niliO, nilli, nilll, nillO, nilOi, nilOl, nilOO, niO1i, niO1l, niO1O, niO0i, niO0l, 1'b1}),
+	.b({{2{1'b1}}, (~ a[30]), (~ a[29]), (~ a[28]), (~ a[27]), (~ a[26]), (~ a[25]), (~ a[24]), (~ a[23]), (~ niOii), (~ niOil), (~ niOiO), (~ niOli), (~ niOll), (~ niOlO), (~ niOOi), (~ niOOl), (~ niOOO), (~ nl11i), (~ nl11l), (~ nl11O), (~ nl10i), (~ nl10l), (~ nl10O), (~ nl1ii), (~ nl1il), (~ nl1iO), (~ nl1li), (~ nl1ll), (~ nl1lO), (~ nl1Oi), (~ nl1Ol), 1'b1}),
+	.cin(1'b0),
+	.cout(),
+	.o(wire_n0Oi_o));
+	defparam
+		n0Oi.sgate_representation = 0,
+		n0Oi.width_a = 34,
+		n0Oi.width_b = 34,
+		n0Oi.width_o = 34;
+	assign
+		niiiO = (((((((a[23] & a[24]) & a[25]) & a[26]) & a[27]) & a[28]) & a[29]) & a[30]),
+		niili = (((((((((((((((((((((((~ a[0]) & (~ a[1])) & (~ a[2])) & (~ a[3])) & (~ a[4])) & (~ a[5])) & (~ a[6])) & (~ a[7])) & (~ a[8])) & (~ a[9])) & (~ a[10])) & (~ a[11])) & (~ a[12])) & (~ a[13])) & (~ a[14])) & (~ a[15])) & (~ a[16])) & (~ a[17])) & (~ a[18])) & (~ a[19])) & (~ a[20])) & (~ a[21])) & (~ a[22])),
+		niill = (((((((b[23] & b[24]) & b[25]) & b[26]) & b[27]) & b[28]) & b[29]) & b[30]),
+		niilO = (((((((((((((((((((((((~ b[0]) & (~ b[1])) & (~ b[2])) & (~ b[3])) & (~ b[4])) & (~ b[5])) & (~ b[6])) & (~ b[7])) & (~ b[8])) & (~ b[9])) & (~ b[10])) & (~ b[11])) & (~ b[12])) & (~ b[13])) & (~ b[14])) & (~ b[15])) & (~ b[16])) & (~ b[17])) & (~ b[18])) & (~ b[19])) & (~ b[20])) & (~ b[21])) & (~ b[22])),
+		niiOi = (b[22] & (~ niO0O)),
+		niiOl = (b[21] & (~ niO0O)),
+		niiOO = (b[20] & (~ niO0O)),
+		nil0i = (b[16] & (~ niO0O)),
+		nil0l = (b[15] & (~ niO0O)),
+		nil0O = (b[14] & (~ niO0O)),
+		nil1i = (b[19] & (~ niO0O)),
+		nil1l = (b[18] & (~ niO0O)),
+		nil1O = (b[17] & (~ niO0O)),
+		nilii = (b[13] & (~ niO0O)),
+		nilil = (b[12] & (~ niO0O)),
+		niliO = (b[11] & (~ niO0O)),
+		nilli = (b[10] & (~ niO0O)),
+		nilll = (b[9] & (~ niO0O)),
+		nillO = (b[8] & (~ niO0O)),
+		nilOi = (b[7] & (~ niO0O)),
+		nilOl = (b[6] & (~ niO0O)),
+		nilOO = (b[5] & (~ niO0O)),
+		niO0i = (b[1] & (~ niO0O)),
+		niO0l = (b[0] & (~ niO0O)),
+		niO0O = ((((((((~ b[23]) & (~ b[24])) & (~ b[25])) & (~ b[26])) & (~ b[27])) & (~ b[28])) & (~ b[29])) & (~ b[30])),
+		niO1i = (b[4] & (~ niO0O)),
+		niO1l = (b[3] & (~ niO0O)),
+		niO1O = (b[2] & (~ niO0O)),
+		niOii = (a[22] & (~ nl01l)),
+		niOil = (a[21] & (~ nl01l)),
+		niOiO = (a[20] & (~ nl01l)),
+		niOli = (a[19] & (~ nl01l)),
+		niOll = (a[18] & (~ nl01l)),
+		niOlO = (a[17] & (~ nl01l)),
+		niOOi = (a[16] & (~ nl01l)),
+		niOOl = (a[15] & (~ nl01l)),
+		niOOO = (a[14] & (~ nl01l)),
+		nl01l = ((((((((~ a[23]) & (~ a[24])) & (~ a[25])) & (~ a[26])) & (~ a[27])) & (~ a[28])) & (~ a[29])) & (~ a[30])),
+		nl10i = (a[10] & (~ nl01l)),
+		nl10l = (a[9] & (~ nl01l)),
+		nl10O = (a[8] & (~ nl01l)),
+		nl11i = (a[13] & (~ nl01l)),
+		nl11l = (a[12] & (~ nl01l)),
+		nl11O = (a[11] & (~ nl01l)),
+		nl1ii = (a[7] & (~ nl01l)),
+		nl1il = (a[6] & (~ nl01l)),
+		nl1iO = (a[5] & (~ nl01l)),
+		nl1li = (a[4] & (~ nl01l)),
+		nl1ll = (a[3] & (~ nl01l)),
+		nl1lO = (a[2] & (~ nl01l)),
+		nl1Oi = (a[1] & (~ nl01l)),
+		nl1Ol = (a[0] & (~ nl01l)),
+		q = {wire_n01O_dataout};
+endmodule //FP_GEQ
+//synopsys translate_on
+//VALID FILE

@@ -1,0 +1,41 @@
+transcript on
+if ![file isdirectory soc_system_iputf_libs] {
+	file mkdir soc_system_iputf_libs
+}
+
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+###### Libraries for IPUTF cores 
+###### End libraries for IPUTF cores 
+###### MIF file copy and HDL compilation commands for IPUTF cores 
+
+file copy -force C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG_memoryC0_uid134_lnTables_lutmem.hex ./
+file copy -force C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG_memoryC0_uid135_lnTables_lutmem.hex ./
+file copy -force C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG_memoryC1_uid138_lnTables_lutmem.hex ./
+file copy -force C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG_memoryC2_uid142_lnTables_lutmem.hex ./
+
+vlog "C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_SUB_sim/FP_SUB.vo"          
+vlog "C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_MULT_sim/FP_MULT.vo"        
+vlog "C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG.vo"          
+vlog "C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FIXED_TO_FP_sim/FIXED_TO_FP.vo"
+vlog "C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_TO_FIXED_sim/FP_TO_FIXED.vo"
+
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/adc_wrapper.v}
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ip/altsource_probe {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ip/altsource_probe/hps_reset.v}
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ip/debounce {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ip/debounce/debounce.v}
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ip/edge_detect {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ip/edge_detect/altera_edge_detector.v}
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ghrd_top.v}
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ltc2308.v}
+
+vlog -vlog01compat -work work +incdir+C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD {C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbench.v}
+
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  testbench
+
+add wave *
+view structure
+view signals
+run -all

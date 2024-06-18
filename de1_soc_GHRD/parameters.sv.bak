@@ -1,0 +1,4 @@
+parameter L = 2048;
+parameter N = 7;
+parameter ADC_RES = 12;
+parameter OUT_RES = 16;

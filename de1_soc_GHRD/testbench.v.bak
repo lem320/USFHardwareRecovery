@@ -1,0 +1,38 @@
+`timescale 1ns/1ps
+
+module testbench ();
+
+reg sys_clk, reset, dout;
+wire sclk, cs_n, din;
+
+wire[11:0] reading0, reading1;
+
+ltc2308 ADC (
+		.clk_50(sys_clk),
+//		.reset(reset),
+		.sck(sclk),
+		.cs(cs_n),
+		.mosi(din),
+		.miso(dout),
+		.reading0(reading0),
+		.reading1(reading1)
+);
+
+
+
+
+always
+	#10 sys_clk <= ~sys_clk; // 50MHz
+	
+always
+	#130 dout <= ~dout;
+	
+initial
+begin
+
+	sys_clk <= 1'b1;
+	reset <= 1'b0;
+	dout <= 1'b0;
+
+end
+endmodule

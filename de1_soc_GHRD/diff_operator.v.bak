@@ -1,0 +1,15 @@
+module diff_operator (
+	input clk,
+
+	input[11:0] y,
+	input[15:0] N,
+	
+	output reg[15:0] ds
+);
+
+		parameter N_max = 5'd20;
+		
+		reg signed [15:0] shift [N_max:0];
+
+
+endmodule

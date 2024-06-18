@@ -1,0 +1,79 @@
+`include "functions.sv"
+
+parameter rows = J+1+N;
+parameter columns = N;
+
+
+module diff_operator_multi (
+	input clk,
+	input reset,
+	input en,
+
+	input signed [OUT_RES-1:0] in [rows-1:0],
+
+	output wire signed [OUT_RES-1:0] out [rows-1:0]
+);
+				
+//	parameter max_order;
+//	parameter max_order_bits = $clog2(max_order);
+
+	integer i,j;
+	
+
+	
+	reg signed [OUT_RES-1:0] shift [rows-1:0][columns:1];
+	reg[N_bits+1:0] counter = N+1;
+	
+	assign out = shift[rows-1:0][columns]
+	
+	initial
+		for (i=0; i<rows; i = i+1)
+			for (j=0; j<columns; j = j+1)
+				shift[i][j] <= (OUT_RES)'('b0);
+	
+	
+	
+	
+	always @ (posedge clk)
+	
+		// Reset shift register to 0s
+		if (reset) begin
+			for (i=0; i<=rows; i = i+1)
+				for (j=0; j<columns; j = j+1)
+					shift[i][j] <= (OUT_RES)'('b0);
+		end
+		
+		
+		
+		
+		// Populate first column (1st order)
+		else if (en) begin
+			for (i=1; i<=rows; i = i+1)
+				shift[i][1] <= in[i] - in[i-1];
+				
+			counter <= 2'd2;
+		end
+		
+		
+		// Populate each subsiquent column (counter-th order)
+		else if (counter <= columns) begin
+			for (i=counter; i<=rows; i = i+1) begin
+			
+				shift[i][counter] <= shift[i][counter-1] - shift[i-1][counter-1];
+			
+				// Don't need extra column of shift for max_order-th order
+//				if (counter < max_order)
+//					shift[i][counter] <= shift[i-1][counter-1'b1] - shift[i][counter-1'b1];
+//				
+//				if (i==counter)
+//					out[i] <= shift[i-1][counter-1'b1] - shift[i][counter-1'b1];
+			end
+			
+			counter <= counter + 1'b1;
+		end
+	
+	
+	
+	
+	
+endmodule

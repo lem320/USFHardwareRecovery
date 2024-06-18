@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="FP_ADD_sim/FP_ADD.vo" type="VERILOG" />
+ <topLevel name="FP_ADD" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

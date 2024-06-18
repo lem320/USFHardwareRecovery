@@ -1,0 +1,38 @@
+module usf_recovery (clk, reset, in, out);
+
+	input clk;
+	input reset;
+	
+	
+	
+//	`include "parameters.sv"
+	`include "functions.sv"
+	
+	wire[ADC_RES-1:0] y_shifted;
+//	wire[OUT_RES-1:0] N;
+	
+	wire signed [OUT_RES-1:0] y, M_DN_y, res_unrounded, res;
+	wire signed [OUT_RES-1:0] Dn_y [N:1];
+	
+	assign y = {4'b0,y_shifted} - 16'd2048;
+//	assign M_DN_y =  CMOD_L(Dn_y[N]); //{5'd0,Dn_y[N][10:0]};
+
+//	assign res_unrounded = M_DN_y - Dn_y[N];
+	assign res = ROUND_2L(CMOD_L(Dn_y[N]) - Dn_y[N]); //{res_unrounded[OUT_RES-1:B] + res_unrounded[B-1],B'('b0)};
+
+	
+	
+	reg diff_en = 1'b0;
+	diff_operator DIFF (
+		.clk(clk),
+		.reset(1'd0),
+		.en(diff_en),
+		
+		.y(y),
+		.out(Dn_y)
+	);
+	defparam DIFF.max_order = N;
+	
+	
+
+endmodule

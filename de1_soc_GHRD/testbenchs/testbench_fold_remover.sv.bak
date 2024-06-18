@@ -1,0 +1,67 @@
+module testbench_fold_remover ();
+
+	localparam signed  [15:0] arr [18:0] = '{
+		0:16'1969,
+		1:16'd1931,
+		2:16'd2007,
+		3:16'd2007,
+		4:16'd2007,
+		5:16'd2007,
+		6:16'd2045,
+		7:16'd2045,
+		8:16'd2007,
+		9:16'd2045,
+		10:16'd1022,
+		11:-16'd1439,
+		12:-16'd1893,
+		13:-16'd1817,
+		14:-16'd1742,
+		15:-16'd1780,
+		16:-16'd1742,
+		17:-16'd1780,
+		18:-16'd1742
+	};
+	
+	integer i;
+
+	reg clk = 1'b0;
+	reg en = 1'b0;
+	
+//	reg signed [15:0] in [12:0] = arr;
+	wire signed [15:0] out [15:0];
+	
+	
+	fold_remover U0 (
+		.clk(clk),
+		.en(en),
+		.reset(1'b0),
+		.in(arr),
+		
+		.out(out)
+	);
+		
+	
+	always
+		#10 clk <= ~clk; // 50MHz
+	
+	initial begin
+		#30
+		en <= 1'b1;
+		#10 en <= 1'b0;
+		#70 en <= 1'b1;
+		#10 en <= 1'b0;
+	end
+	
+//	initial begin
+//		#90
+//		in <= arr2;
+//	end
+	
+//	initial
+//		for (i = 0; i<=10; i = i + 1) begin
+//			in <= arr[i];
+//			#200;
+//		end
+		
+
+endmodule

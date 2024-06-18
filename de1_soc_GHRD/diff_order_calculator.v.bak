@@ -1,0 +1,50 @@
+module diff_order_calculator (
+	input en,
+	input clk,
+	input wire[11:0] L,
+	output wire [31:0] N
+);
+
+	wire[31:0] FP_L, FP_LOG_L, A, B;
+	parameter[31:0] FP_LOG_BG = 32'b0;
+	parameter[31:0] FP_INV_LOG_TOE = 32'b0;
+	
+	
+	FIXED_TO_FP FP0 (
+		.clk(clk),
+		.areset(1'b0),
+		.en(en),
+		.a(L),
+		.q(L_FP)
+	);
+	
+	FP_LOG FP1 (
+		.clk(clk),
+		.areset(1'b0),
+		.en(en),
+		.a(FP_L),
+		.q(FP_LOG_L)
+	);
+	
+	FP_SUB FP2 (
+		.clk(clk),
+		.areset(1'b0),
+		.en(en),
+		.a(FP_LOG_L),
+		.b(FP_LOG_BG),
+		.q(A)
+	);
+	
+	FP_MULT FP3 (
+		.clk(clk),
+		.areset(1'b0),
+		.en(en),
+		.a(A),
+		.b(FP_INV_LOG_TOE),
+		.q(B)
+	);
+
+	assign N = Q;
+
+
+endmodule

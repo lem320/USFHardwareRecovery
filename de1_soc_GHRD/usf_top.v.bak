@@ -1,0 +1,73 @@
+module top (
+	input clk,
+	input reset,
+	
+	output wire sck,
+	output wire cs,
+	input dout,
+	output wire din,
+	
+	input mode,
+	output reg[31:0] fifo_in_writedata,
+	output reg fifo_in_write,
+	output wire[31:0] reading2,
+	
+	output wire[3:0] gpio,
+	output wire[9:0] led
+);
+
+	wire [11:0] reading0, reading1;
+
+	
+	assign gpio [0] = sck;
+	assign gpio [1] = cs;
+	assign gpio [2] = din;
+	assign gpio [3] = dout;
+	
+	assign led[9:5] = reading0[11:7];
+	assign led[4:0] = reading1[11:7];
+	
+	
+	ltc2308 ADC (
+		.clk_50(clk),
+		.sck(sck),
+		.cs(cs),
+		.mosi(din),
+		.miso(dout),
+		.reading0(reading0),
+		.reading1(reading1),
+		.reading2(reading2),
+		.mode_in(mode)
+	);
+	
+	reg counter = 1'b0;
+	always @ (posedge cs)
+		counter = ~counter;
+	
+	reg new_cycle = 1'b1;
+	always @ (posedge clk) begin
+		if (!mode)
+			if (!fifo_in_write && cs && new_cycle && counter == 1'b0) begin
+				fifo_in_write <= 1'b1;
+				fifo_in_writedata <= {4'd0,reading1,4'd0,reading0};
+			end
+			else if (fifo_in_write && cs && new_cycle && counter == 1'b0) begin
+				fifo_in_write <= 1'b0;
+				new_cycle <= 1'b0;
+			end
+			else if (!cs && !new_cycle)
+				new_cycle <= 1'b1;
+	end
+	
+//	reg[15:0] tmp = 16'b0;
+//	always @ (posedge ADC_CS_N) begin
+//		fifo_in_write <= 1'b1;
+//		fifo_in_writedata <= {16'b0,tmp};
+//		tmp <= tmp + 1'b1;
+//	end
+//	
+//	always @ (negedge ADC_CS_N)
+//		fifo_in_write <= 1'b0;
+		
+		
+endmodule

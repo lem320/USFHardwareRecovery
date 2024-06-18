@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="LOG_FP_sim/LOG_FP_memoryC0_uid134_lnTables_lutmem.hex"
+   type="HEX" />
+ <file
+   path="LOG_FP_sim/LOG_FP_memoryC0_uid135_lnTables_lutmem.hex"
+   type="HEX" />
+ <file
+   path="LOG_FP_sim/LOG_FP_memoryC1_uid138_lnTables_lutmem.hex"
+   type="HEX" />
+ <file
+   path="LOG_FP_sim/LOG_FP_memoryC2_uid142_lnTables_lutmem.hex"
+   type="HEX" />
+ <file path="LOG_FP_sim/LOG_FP.vo" type="VERILOG" />
+ <topLevel name="LOG_FP" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

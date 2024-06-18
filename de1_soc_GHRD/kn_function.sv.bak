@@ -1,0 +1,24 @@
+`include "functions.sv"
+
+module kn_function (
+	input signed [OUT_RES-1:0] Dn_res,
+	input clk,
+	input en,
+	input reset,
+	
+	output signed [OUT_RES-1:0] Kn
+);
+
+	wire signed [OUT_RES-1:0] S2_Dn_res;
+	antidiff_operator_multi ANTIDIFF (
+		.clk(clk),
+		.reset(reset),
+		.en(en),
+		.in(Dn_res),
+		.out(S2_Dn_res)
+	);
+	defparam ANTIDIFF.columns = 2;
+
+
+
+endmodule

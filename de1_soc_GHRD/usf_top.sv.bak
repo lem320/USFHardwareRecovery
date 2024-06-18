@@ -1,0 +1,101 @@
+module usf_top (
+	input clk,
+	input reset,
+	input mode,
+	
+	output wire sck,
+	output wire cs,
+	input dout,
+	output wire din,
+	
+	output wire[31:0] fifo_in_writedata,
+	output wire fifo_in_write,
+	
+	output wire[3:0] gpio,
+	output wire[9:0] led
+);
+
+	`include "parameters.sv"
+//	`include "functions.sv"
+	
+	wire[ADC_RES-1:0] y_shifted;
+//	wire[OUT_RES-1:0] N;
+	
+	wire signed [OUT_RES-1:0] y, M_DN_y, res_unrounded, res;
+	wire signed [OUT_RES-1:0] Dn_y [N:1];
+	
+	assign y = {4'b0,y_shifted} - 16'd2048;
+//	assign M_DN_y =  CMOD_L(Dn_y[N]); //{5'd0,Dn_y[N][10:0]};
+
+//	assign res_unrounded = M_DN_y - Dn_y[N];
+	assign res = ROUND_2L(CMOD_L(Dn_y[N]) - Dn_y[N]); //{res_unrounded[OUT_RES-1:B] + res_unrounded[B-1],B'('b0)};
+
+	
+
+	
+	
+	wire[11:0] reading1;
+	ltc2308 ADC (
+		.clk_50(clk),
+		
+		.sck(sck),
+		.cs(cs),
+		.mosi(din),
+		.miso(dout),
+		
+		.reading0(y_shifted),
+		.reading1(reading1)
+	);
+	
+	assign gpio[0] = sck;
+	assign gpio[1] = cs;
+	assign gpio[2] = din;
+	assign gpio[3] = dout;
+	
+	assign led[9:5] = y_shifted[11:7];
+	assign led[4:0] = reading1[11:7];
+	
+
+	reg diff_en = 1'b0;
+	diff_operator DIFF (
+		.clk(clk),
+		.reset(1'd0),
+		.en(diff_en),
+		
+		.y(y),
+		.out(Dn_y)
+	);
+	defparam DIFF.max_order = N;
+	
+	
+	fifo_write FIFO_wRITE (
+		.clk(clk),
+		.cs(cs),
+		.mode(mode),
+
+		.reading0(y_shiftedy_shifted),
+		.reading1(reading1),
+		
+		.fifo_in_writedata(fifo_in_writedata),
+		.fifo_in_write(fifo_in_write)
+	);
+	
+	reg[3:0] counter = 4'b0;
+	always @ (posedge clk) begin
+		if (cs) begin
+			case (counter)
+				4'd0:
+					diff_en <= 1'b1;
+				4'd1:
+					diff_en <= 1'b0;
+			endcase
+			
+			if (counter < 4'd12)
+				counter <= counter + 1'b1;
+		end
+		else
+			counter <= 4'b0;
+	
+	end
+	
+endmodule

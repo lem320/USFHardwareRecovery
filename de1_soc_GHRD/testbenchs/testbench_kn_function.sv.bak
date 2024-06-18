@@ -1,0 +1,49 @@
+module testbench_kn_function ();
+
+localparam signed  [11:0] arr [4:0] = '{
+		0:12'd1,
+		1:12'd4,
+		2:12'd7,
+		3:-12'd5,
+		4:-12'd3
+	};
+	integer i;
+
+	reg clk = 1'b1;
+	reg en = 1'b0;
+	
+	reg[15:0] in = 16'd1;
+	wire[15:0] out [4:0];
+	
+	usf_recovery_multi U0 (
+		.clk(clk),
+		.en(en),
+		.reset(1'b0),
+		
+		.in(arr),
+		.out(out)
+	);
+	
+	
+	always
+		#10 clk <= ~clk; // 50MHz
+	
+	initial begin
+		#100;
+		for (i = 0; i<=10; i = i + 1) begin
+			in <= arr[i];
+			#200;
+		end
+	end
+	
+	initial begin
+		#10;
+		forever begin
+			#20 en <= 1'b0;
+			#380 en <= 1'b1;
+		end
+	end
+
+
+
+endmodule

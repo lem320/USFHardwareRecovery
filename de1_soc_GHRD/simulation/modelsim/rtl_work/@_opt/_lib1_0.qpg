@@ -1,0 +1,633 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e MIXED_VERSIONS
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/simulation/modelsim
+T_opt
+!s110 1710181317
+V<[[o>C:BcAeXZLb]6N;X71
+04 20 4 work testbench_loop_block fast 0
+=19-4889e7ed4135-65ef4bc5-220-62ec
+!s124 OEM10U5 
+Z2 o-quiet -auto_acc_if_foreign -work work +acc
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;2021.2;73
+T_opt1
+!s110 1710082693
+V>Ok>f4J0b^_U9;<I9cJNl1
+04 18 4 work testbench_function fast 0
+=17-4889e7ed4135-65edca85-ac-7020
+!s124 OEM10U1 
+R2
+R3
+n@_opt1
+R4
+R1
+T_opt2
+!s110 1708528153
+VC_R^?=Gm3_BRcS:@bcThj0
+04 9 4 work testbench fast 0
+=1-4ce1734237dc-65d61219-e5-450
+!s124 OEM10U3 
+R2
+R3
+n@_opt2
+R4
+R1
+vadc_wrapper
+!s110 1709124098
+!i10b 1
+!s100 Bo^O]Q<Z1ImZYWVMZabL`0
+Ig5J@1NZNaGB1m2Pg_>IG20
+R1
+w1709122969
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/adc_wrapper.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/adc_wrapper.v
+!i122 13
+L0 1 73
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2021.2;73
+r1
+!s85 0
+31
+!i113 0
+Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vantidiff_operator
+!s110 1710002181
+!i10b 1
+!s100 LgAT_K62HhSUgFJ3LN7Od0
+ITa9cCfA3aG>KGEYHKCQeA1
+R1
+w1710000060
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/antidiff_operator.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/antidiff_operator.v
+!i122 149
+L0 1 44
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vdiff_operator
+Z8 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1709917521
+!i10b 1
+!s100 _Ej@?CSi;k8InE`^Sa^8<3
+IoILRAl^@^c1f;Coh05R^]0
+S1
+R1
+w1709915093
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/diff_operator.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/diff_operator.sv
+!i122 141
+L0 1 63
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vdiff_order_calculator
+!s110 1709898418
+!i10b 1
+!s100 H]A`aTeFjd_oR8ZDIXkX@1
+IT15E5m[Q9[dm0_9YE3o:A0
+R1
+w1709141755
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/diff_order_calculator.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/diff_order_calculator.v
+!i122 91
+L0 1 133
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vfifo_write
+!s110 1709136675
+!i10b 1
+!s100 C8J?O@_Pmz9<O0=_M`]PM2
+IAL5^_;S<;WGmk2E@j>[gN3
+R1
+w1709133095
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/fifo_write.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/fifo_write.v
+!i122 26
+L0 1 34
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vFIXED_TO_FP
+Z9 !s110 1709122806
+!i10b 1
+!s100 e]3hKT@aOS0X3_DP@5<5R0
+I[C^3_UZlW`VXL:]2c<LKN3
+R1
+w1709035927
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FIXED_TO_FP_sim/FIXED_TO_FP.vo
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FIXED_TO_FP_sim/FIXED_TO_FP.vo
+!i122 3
+L0 32 446
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+n@f@i@x@e@d_@t@o_@f@p
+vFP_GEQ
+R9
+!i10b 1
+!s100 LBGCZAL`0iB6EM4ji[;iN0
+Iz^@=eJc<^3aKE25?B<@9@0
+R1
+w1709053160
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_GEQ_sim/FP_GEQ.vo
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_GEQ_sim/FP_GEQ.vo
+!i122 5
+L0 32 153
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R10
+R3
+n@f@p_@g@e@q
+vFP_LOG
+R9
+!i10b 1
+!s100 E7kMcE[H7RVOg1<O4K8<n2
+I__0]HZnB]d3]1RUm1Uj]33
+R1
+w1709047533
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG.vo
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_LOG_sim/FP_LOG.vo
+!i122 2
+L0 32 4915
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R10
+R3
+n@f@p_@l@o@g
+vFP_MULT
+Z11 !s110 1709122805
+!i10b 1
+!s100 f251YCWfCJeaVdbDLI5c73
+I``]8nEjHbEHaRMSA5NC?>2
+R1
+w1709035793
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_MULT_sim/FP_MULT.vo
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_MULT_sim/FP_MULT.vo
+!i122 1
+L0 32 1001
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R10
+R3
+n@f@p_@m@u@l@t
+vFP_SUB
+R11
+!i10b 1
+!s100 n]3V5g^DU=?gE63`FoFk32
+I?<4W;DVQdA?16`Wh3gW`e1
+R1
+w1709035744
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_SUB_sim/FP_SUB.vo
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_SUB_sim/FP_SUB.vo
+!i122 0
+L0 32 3194
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R10
+R3
+n@f@p_@s@u@b
+vFP_TO_FIXED
+R9
+!i10b 1
+!s100 AhM<TR?7VTV5:PdW08;d=2
+I[5PWo]Z7<l>DHz7HR4c7l3
+R1
+w1709035970
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_TO_FIXED_sim/FP_TO_FIXED.vo
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/FP_TO_FIXED_sim/FP_TO_FIXED.vo
+!i122 4
+L0 32 691
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R10
+R3
+n@f@p_@t@o_@f@i@x@e@d
+Xfunctions_sv_unit
+R8
+!s110 1710080951
+VGS8G8U9kEOkJ6zAfK<2J<1
+r1
+!s85 0
+!i10b 1
+!s100 9SiNHgDIdSZnl;VSdJZ0=0
+IGS8G8U9kEOkJ6zAfK<2J<1
+!i103 1
+S1
+R1
+w1710080919
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/functions.sv
+Z12 FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/functions.sv
+Z13 FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/parameters.sv
+!i122 165
+L0 2 0
+R6
+31
+!i113 0
+R7
+R3
+vloop_block
+R8
+!s110 1710181315
+!i10b 1
+!s100 AQBzAP9WjI4Y8Oencnh4o0
+I982cT2_;ndiQD70RG5cf@1
+S1
+R1
+w1710181311
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/loop_block.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/loop_block.sv
+R12
+R13
+!i122 200
+L0 1 111
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vltc2308
+!s110 1709655290
+!i10b 1
+!s100 kdhMBRT:dI;^JhJCibUj60
+IK4]gfkfa4<53KDHji:1Hl2
+R1
+w1709654857
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ltc2308.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/ltc2308.v
+!i122 71
+L0 2 79
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_adc
+!s110 1709124094
+!i10b 1
+!s100 bQk?zMJ;XgoS]?53m2F6Z0
+I6W@YD4H3hD:4ELg_^E1S82
+R1
+w1709123106
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_adc.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_adc.v
+!i122 12
+L0 3 69
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_antidiff_operator
+!s110 1709906884
+!i10b 1
+!s100 Nh]^CgaTV=DcCO1kkdDNo2
+Igo2fTl>J5X_?AU?fmioe;2
+R1
+w1709906880
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_antidiff_operator.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_antidiff_operator.v
+!i122 121
+L0 1 58
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_diff_operator
+R8
+!s110 1709913179
+!i10b 1
+!s100 c3j=m<QK^_]@VF8Q7Fea32
+IbZ2IN:L<[mDE92Q]268N40
+S1
+R1
+w1709912772
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_diff_operator.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_diff_operator.sv
+!i122 140
+L0 1 54
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_diff_order
+!s110 1709141575
+!i10b 1
+!s100 S49a<h]hk;CJm5?9]4TYd2
+I[PdBSZ1Z0=bl5Qb74OY1^1
+R1
+w1709133138
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_diff_order.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_diff_order.v
+!i122 44
+L0 3 26
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_function
+R8
+!s110 1710082690
+!i10b 1
+!s100 J>L9aig4;FU<MQon0A06Y3
+IcgaP3zB5nIzKF3F9H20cV3
+S1
+R1
+w1710082685
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_function.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_function.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/../functions.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/../parameters.sv
+!i122 180
+L0 1 61
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_loop_block
+R8
+!s110 1710174737
+!i10b 1
+!s100 VTHbXL::U=DLf1@CdN9E[3
+I?LhzQ1A<kJ9XZc;jfF?T13
+S1
+R1
+w1710174671
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_loop_block.sv
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_loop_block.sv
+!i122 186
+L0 1 56
+R5
+R6
+r1
+!s85 0
+31
+!i113 0
+R7
+R3
+vtestbench_top
+!s110 1709744488
+!i10b 1
+!s100 le`oQ_Q4Fj3<J_F0e@beN1
+I_A;zoI8]:Z13O5@91DLz;1
+R1
+w1709139287
+8C:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testbenchs/testbench_top.v
+FC:/Users/luke/OneDrive/FYP/QUARTUS/de1_soc_GHRD/testb

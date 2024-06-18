@@ -1,0 +1,60 @@
+module diff_operator (clk,reset,en,y,out);
+				
+		parameter order_bits;
+		parameter order;
+		integer i,j;
+		
+		input clk;
+		input reset;
+		input en;
+
+		input[11:0] y;
+	
+		output reg signed [15:0] out [3:0];
+		
+		reg signed [15:0] shift [order:0][order-1:0];
+		reg[order_bits+1:0] counter = order+1;
+		
+		initial
+			for (i=0; i<order; i = i+1)
+				for (j=0; j<order; j = j+1)
+					shift[i][j] <= 16'b0;
+		
+		always @ (negedge clk) begin
+			for (i=0; i<order; i = i+1)
+				out[i] <= shift[i][i];
+			out[order] <= shift[order-1][order-1] - shift[order][order-1];
+		end
+						
+		always @ (posedge clk)
+		
+			// Reset shift register to 0s
+			if (reset) begin
+				for (i=0; i<=order; i = i+1)
+					for (j=0; j<order; j = j+1)
+						shift[i][j] <= 16'b0;
+			end
+			
+			// Populate first column (0th order)
+			else if (en) begin
+				shift[0][0] <= {4'b0,y};
+				for (i=1; i<=order; i = i+1)
+					shift[i][0] <= shift[i-1][0];
+					
+				counter <= 1'b1;
+			end
+			
+			// Populate each subsiquent column (counter-th order)
+			else if (counter < order) begin
+				for (i=1; i<=order; i = i+1)
+					shift[i][counter] <= shift[i-1][counter-1'b1] - shift[i][counter-1'b1];
+				
+				counter <= counter + 1'b1;
+			end
+			
+//			if (counter == order-1)
+//				done <= 1'b1;
+//			else 
+//				done <= 1'd0;
+			
+endmodule
